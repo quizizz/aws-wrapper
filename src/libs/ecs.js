@@ -183,7 +183,7 @@ async function updateImage(definition, container, image, loggroup) {
   }, taskDefinition, {
     containerDefinitions: taskDefinition.containerDefinitions.map((cont) => {
       if (cont.name === container) {
-        if (!family.includes("infra")){
+        if (!family.includes("infra") && !family.includes("games-server")){
           return Object.assign({}, cont, {
             image,
             logConfiguration: {
